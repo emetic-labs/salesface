@@ -107,12 +107,30 @@ section input {
   padding-right: 3em;
 }
 
+
 /*Overrides*/
 
 body{
   font-family: 'Share Tech Mono','Courier New',Courier,fixed-width;
   font-size: 0.8em;
 }
+
+div#local-media {
+  position: relative;
+}
+
+div#local-media video, div#local-media canvas {
+  top: 0;
+  left: 0;
+  width: 270px;
+  height:204px;
+  position: absolute;
+}
+
+canvas{
+  z-index: 100000;
+}
+
 div#remote-media {
   height: 100%;
   width: 100%;
@@ -120,6 +138,19 @@ div#remote-media {
   border: solid 1px #686865;
   text-align: center;
   margin: auto;
+  position: relative
+}
+
+div#remote-media video, div#remote-media canvas {
+  top: 0;
+  left: 0;
+  width: 900px;
+  height: 600px;
+  position: absolute;
+}
+
+canvas{
+  z-index: 100000;
 }
 
 div#controls div#log {
@@ -138,4 +169,8 @@ div#controls {
 
 div#controls div#invite-controls, div#controls div#preview, div#controls div#token {
    margin: 0 0em;
+}
+
+div#remote-media video {
+  max-width: 100% !important;
 }

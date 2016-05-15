@@ -4,23 +4,12 @@
   <title>Twilio Video - Video Quickstart</title>
   <link rel="stylesheet" href="https://media.twiliocdn.com/sdk/quickstart/conversations-quickstart.min.css">
   <link rel="stylesheet" href="index.css">
-  <style>
-  video, canvas {
-    margin-left: 230px;
-    margin-top: 120px;
-    position: absolute;
-  }
-  canvas{
-    z-index: 100000;
-  }
-  </style>
 </head>
 <body>
   <div class="header-section"><h1>SalesFace: Monetize your personal brand!!!</h1></div>
   <div id="controls" class="client-section">
     <div id="preview">
       <div id="local-media">
-        <canvas id="canvas" width="640" height="480"></canvas>
       </div>
       <button id="button-preview">Preview My Camera</button>
     </div>
@@ -33,7 +22,7 @@
     </div>
   </div>
   <div class="guest-section">
-    <div id="remote-media"></div>
+    <div id="remote-media"><canvas id="canvas" width="900" height="600"></canvas></div>
   </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script src="https://media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>

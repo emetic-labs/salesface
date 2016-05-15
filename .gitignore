@@ -20,13 +20,12 @@
 
 node_modules
 bower_components
-public/vendor
 
 
 ## Specific to RubyMotion:
 .dat*
 .repl_history
-build/
+# build/
 
 ## Documentation cache and generated files:
 /.yardoc/

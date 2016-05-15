@@ -66,6 +66,14 @@ function conversationStarted(conversation) {
     conversation.on('participantConnected', function (participant) {
         log("Participant '" + participant.identity + "' connected");
         participant.media.attach('#remote-media');
+        // Start Tracking
+        setTimeout(function(){
+            // Quick fix to get video working as-is
+            var vid = document.getElementsByTagName("video")[1]
+            vid.id = "video"
+            startTracker()
+
+        }, 3000)
     });
 
     // When a participant disconnects, note in log
@@ -105,15 +113,6 @@ document.getElementById('button-preview').onclick = function () {
         });
     };
 
-    // Start Tracking
-    setTimeout(function(){
-      // Quick fix to get video working as-is
-      var vid = document.getElementsByTagName("video")[0]
-      vid.id = "video"
-      startTracker()
-
-    }, 2000)
-
 };
 
 // Activity log
@@ -126,29 +125,37 @@ function startTracker() {
   var video = document.getElementById('video');
   var canvas = document.getElementById('canvas');
   var context = canvas.getContext('2d');
+    
+  // var tracker = new tracking.ObjectTracker('face');
+  var objects = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
+    // var objects = new tracking.ObjectTracker([ 'eye', 'mouth']);
 
-  var tracker = new tracking.ObjectTracker('eye', 'mouth');
-  tracker.setInitialScale(4);
-  tracker.setStepSize(2);
-  tracker.setEdgesDensity(0.1);
+  objects.setInitialScale(1.5);
+  objects.setStepSize(2);
+  objects.setEdgesDensity(0.1);
 
-  tracking.track('#video', tracker, { camera: true });
+  tracking.track('#video', objects);
 
-  tracker.on('track', function(event) {
+
+  objects.on('track', function(event) {
     context.clearRect(0, 0, canvas.width, canvas.height);
-
-    event.data.forEach(function(rect) {
-      context.strokeStyle = '#a64ceb';
-      context.strokeRect(rect.x, rect.y, rect.width, rect.height);
-      context.font = '11px Helvetica';
-      context.fillStyle = "#fff";
-      context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
-      context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
-    });
+    if (event.data.length === 0) {
+      // No objects were detected in this frame.
+    }
+    else {
+        event.data.forEach(function(rect) {
+          context.strokeStyle = '#a64ceb';
+          context.strokeRect(rect.x, rect.y, rect.width, rect.height);
+          context.font = '11px Helvetica';
+          context.fillStyle = "#fff";
+          context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
+          context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
+        });
+      }
   });
 
   var gui = new dat.GUI();
-  gui.add(tracker, 'edgesDensity', 0.1, 0.5).step(0.01);
-  gui.add(tracker, 'initialScale', 1.0, 10.0).step(0.1);
-  gui.add(tracker, 'stepSize', 1, 5).step(0.1);
+  gui.add(objects, 'edgesDensity', 0.1, 0.5).step(0.01);
+  gui.add(objects, 'initialScale', 1.0, 10.0).step(0.1);
+  gui.add(objects, 'stepSize', 1, 5).step(0.1);
 };
