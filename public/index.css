@@ -97,9 +97,13 @@ section input {
 }
 
 .header-section{
+  margin: 20px 0;
   padding-left: 50px;
 }
 
+.header-section > img {
+  height: 100px;
+}
 .guest-section {
   display: inline-block;
   height: 600px;
