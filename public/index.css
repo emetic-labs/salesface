@@ -88,3 +88,54 @@ section input {
   display:inline-block;
   margin-right:5px;
 }
+
+.client-section {
+  display: inline-block;
+  height: 600px;
+  width:25%;
+  padding-left: 3em;
+}
+
+.header-section{
+  padding-left: 50px;
+}
+
+.guest-section {
+  display: inline-block;
+  height: 600px;
+  width: 74%;
+  padding-right: 3em;
+}
+
+/*Overrides*/
+
+body{
+  font-family: 'Share Tech Mono','Courier New',Courier,fixed-width;
+  font-size: 0.8em;
+}
+div#remote-media {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0);
+  border: solid 1px #686865;
+  text-align: center;
+  margin: auto;
+}
+
+div#controls div#log {
+  width: 100%;
+  height: 9.5em;
+  margin-top: 2.75em;
+  text-align: left;
+  padding: 1.5em;
+  /* float: right; */
+}
+
+div#controls {
+  /*padding-left: 0em;*/
+  padding-top: 0px;
+}
+
+div#controls div#invite-controls, div#controls div#preview, div#controls div#token {
+   margin: 0 0em;
+}

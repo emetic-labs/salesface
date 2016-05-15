@@ -26,7 +26,7 @@ $.getJSON('/token', function(data) {
 // Successfully connected!
 function clientConnected() {
     document.getElementById('invite-controls').style.display = 'block';
-    log("Connected to Twilio. Listening for incoming Invites as '" + conversationsClient.identity + "'");
+    log("Welcome, " + conversationsClient.identity + "!");
 
     conversationsClient.on('invite', function (invite) {
         log('Incoming invite from: ' + invite.from);
@@ -127,7 +127,7 @@ function startTracker() {
   var canvas = document.getElementById('canvas');
   var context = canvas.getContext('2d');
 
-  var tracker = new tracking.ObjectTracker('face');
+  var tracker = new tracking.ObjectTracker('eye', 'mouth');
   tracker.setInitialScale(4);
   tracker.setStepSize(2);
   tracker.setEdgesDensity(0.1);
