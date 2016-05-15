@@ -88,3 +88,14 @@ section input {
   display:inline-block;
   margin-right:5px;
 }
+
+/* Advertisements */
+
+.advertisement {
+  position: absolute;
+  display: none;
+
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+}
