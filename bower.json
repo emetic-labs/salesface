@@ -1,0 +1,20 @@
+{
+  "name": "salesface",
+  "description": "Puts ads on your face, in real time!",
+  "main": "app.rb",
+  "authors": [
+    "-"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/emetic-labs/salesface",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tracking": "^1.1.2"
+  }
+}

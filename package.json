@@ -4,7 +4,9 @@
   "description": "Puts ads on your face, in real time!",
   "main": "app.rb",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "bundle exec rackup config.ru -p $PORT",
+    "prestart": "npm install",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/emetic-labs/salesface/issues"
   },
-  "homepage": "https://github.com/emetic-labs/salesface#readme"
+  "homepage": "https://github.com/emetic-labs/salesface#readme",
+  "dependencies": {
+    "bower": "^1.7.9"
+  }
 }

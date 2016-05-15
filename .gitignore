@@ -18,6 +18,10 @@
 *.sass-cache
 /pkg
 
+node_modules
+bower_components
+public/vendor
+
 
 ## Specific to RubyMotion:
 .dat*
