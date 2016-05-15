@@ -13,8 +13,9 @@ function AdDisplayer(canvas, addId) {
     AD_WRAPPER = document.getElementById(addId + '_wrapper'),
     AD = document.getElementById(addId),
 
-    offsetLeft = CANVAS.offsetLeft,
-    offsetTop = CANVAS.offsetTop
+    canvasBoundingRect = CANVAS.getBoundingClientRect(),
+    offsetLeft = canvasBoundingRect.left,
+    offsetTop = canvasBoundingRect.top
   ;
 
   var hideCallCount = 0;
