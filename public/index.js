@@ -73,7 +73,7 @@ function conversationStarted(conversation) {
             vid.id = "video"
             startTracker()
 
-        }, 3000)
+        }, 1500)
     });
 
     // When a participant disconnects, note in log
@@ -169,8 +169,4 @@ function startTracker() {
       ads.unshift(ads.pop());
   });
 
-  var gui = new dat.GUI();
-  gui.add(objects, 'edgesDensity', 0.1, 0.5).step(0.01);
-  gui.add(objects, 'initialScale', 1.0, 10.0).step(0.1);
-  gui.add(objects, 'stepSize', 1, 5).step(0.1);
 };
