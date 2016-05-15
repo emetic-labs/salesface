@@ -94,7 +94,98 @@ document.getElementById('button-preview').onclick = function () {
         function (error) {
             console.error('Unable to access local media', error);
             log('Unable to access Camera and Microphone');
-        });
+        }).then(
+        function() {
+            
+            // Just playing around with face detection stuff
+            
+            console.log('+ + + + +');
+
+            // On a canvas element created from the video.
+
+            var 
+                vCanv = document.getElementById('test_canvas'),
+                vCtx = vCanv.getContext('2d'),
+                dCanv = document.getElementById('display_canvas'),
+                dCtx = dCanv.getContext('2d'),
+                mediaContainer = document.getElementById('local-media'),
+                videoEl = mediaContainer.getElementsByTagName('video')[0]
+            ;
+            
+            videoEl.addEventListener('canplaythrough', function(e) {
+                
+                console.log('canplaythrough fired!')
+
+                setInterval(function() {
+                    vCtx.drawImage(videoEl, 0, 0, 270, 202);                    
+
+                    $(vCanv).faceDetection({
+                        complete: function(faces) {
+                            console.log('found some faces');
+                            console.log(faces);
+
+                            if (faces && faces.length > 0) {
+                                console.log('there is a face in faces');
+
+                                dCtx.clearRect(0,0, dCanv.width, dCanv.height);
+
+                                for (var i = 0, len = faces.length; i < len; i++) {
+                                    dCtx.strokeRect(faces[i].x*2, faces[i].y*2, faces[i].width*2, faces[i].height*2);
+                                }
+                            }                            
+                        }
+                    })
+
+                }, 200)
+
+
+                    // setInterval(function() {
+                //     console.log('drawing an image...');
+                //     ctx.drawImage(videoEl, 0, 0);
+
+                //     // $(canv).faceDetection({
+                //     //     complete: function(faces) {
+                //     //         console.log('found some faces');
+                //     //         console.log(faces);
+
+                //     //         if (faces && faces.length > 0) {
+                //     //             console.log('there is a face in faces');
+                //     //             ctx.strokeRect(faces[0].x, faces[0].y, faces[0].width, faces[0].height);
+                //     //         }
+                //     //     }
+                //     // })
+
+                // }, 500)
+
+            });
+
+            console.log(videoEl);
+
+            // On a static image. It worked. It found a face.
+
+            // var j = document.getElementById('test_image');
+            // $(j).faceDetection({
+            //     complete: function(faces) {
+            //         console.log('found some faces');
+            //         console.log(faces);
+            //     }
+            // })
+
+            // Straight from the video element. It didn't work. It threw an exception.
+
+            // console.log(previewMedia)
+            // var mediaContainer = document.getElementById('local-media');
+            // var videoEl = mediaContainer.getElementsByTagName('video')[0];
+            // console.log(videoEl);
+            
+            // $(videoEl).faceDetection({
+            //     complete: function(faces) {
+            //         console.log('found some faces!');
+            //         console.log(faces);
+            //     }
+            // })
+        })
+        ;
     };
 };
 

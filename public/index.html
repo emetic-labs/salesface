@@ -9,7 +9,10 @@
   <div id="controls">
     <div id="preview">
       <p class="instructions">Hello Beautiful</p>
-      <div id="local-media"></div>
+      <div id="local-media" style="width: 540px; height: 404px">
+        <canvas id="test_canvas" style="display: none;" width=270 height=202>I am a canvas.</canvas>
+        <canvas id="display_canvas" style="position: absolute;" width=540 height=404>I am also a canvas</canvas>
+      </div>
       <button id="button-preview">Preview My Camera</button>
     </div>
     <div id="invite-controls">
@@ -21,7 +24,17 @@
       <p>&gt;&nbsp;<span id="log-content">Preparing to listen</span>...</p>
     </div>
   </div><!-- /controls -->
+
+<!--   <img id="test_image" src="jelena.jpg" /> -->
+
+<!--   <canvas id="test_canvas" style="background-color: red;" width=500 height=500>I am a canvas.</canvas> -->
+
+  <div id="test_area" style="width: 100px; height: 100px; position: absolute; transform:scale(0.5);">
+<!--    <script type='text/javascript' src='//clksite.com/adServe/banners?tid=132277_226881_0'></script> -->
+  </div>
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="jquery.facedetection.js"></script>
   <script src="https://media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
   <script src="https://media.twiliocdn.com/sdk/js/conversations/v0.13/twilio-conversations.min.js"></script>
   <script src="index.js"></script>
