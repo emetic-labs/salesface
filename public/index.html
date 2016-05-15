@@ -2,14 +2,38 @@
 <html>
 <head>
   <title>Twilio Video - Video Quickstart</title>
+  <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="https://media.twiliocdn.com/sdk/quickstart/conversations-quickstart.min.css">
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
+  <!-- Ad containers -->
+  <div id="ad_1_wrapper" class="advertisement">
+<!-- Inster ad script here -->
+    <div id="ad_1" style="transform-origin: top left;">
+      <script type='text/javascript' src='//clksite.com/adServe/banners?tid=132277_226881_3'></script> 
+    </div>
+  </div>
+
+  <div id="ad_2_wrapper" class="advertisement">
+    <div id="ad_2" style="transform-origin: top left;">
+      <script type='text/javascript' src='//clksite.com/adServe/banners?tid=132277_226881_4'></script>
+    </div>
+  </div>
+
+  <div id="ad_3_wrapper" class="advertisement">
+    <div id="ad_3" style="transform-origin: top left;">
+      <script type='text/javascript' src='//clksite.com/adServe/banners?tid=132277_226881_5'></script>
+    </div>
+  </div>
+
+
   <div class="header-section"><h1>SalesFace: Monetize your personal brand!!!</h1></div>
   <div id="controls" class="client-section">
     <div id="preview">
       <div id="local-media">
+        <canvas id="canvas" width="640" height="480"></canvas>
       </div>
       <button id="button-preview">Preview My Camera</button>
     </div>
@@ -22,8 +46,10 @@
     </div>
   </div>
   <div class="guest-section">
-    <div id="remote-media"><canvas id="canvas" width="900" height="600"></canvas></div>
+    <div id="remote-media"></div>
   </div>
+
+  
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script src="https://media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
   <script src="https://media.twiliocdn.com/sdk/js/conversations/v0.13/twilio-conversations.min.js"></script>
@@ -36,6 +62,7 @@
   <script src="vendor/dat-gui/build/dat.gui.min.js"></script>
   <!-- <script src="assets/stats.min.js"></script> -->
 
+  <script type="text/javascript" src="AdDisplayer.js"></script>
   <script src="index.js"></script>
 </body>
 </html>

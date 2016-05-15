@@ -174,3 +174,13 @@ div#controls div#invite-controls, div#controls div#preview, div#controls div#tok
 div#remote-media video {
   max-width: 100% !important;
 }
+/* Advertisements */
+
+.advertisement {
+  position: absolute;
+  display: none;
+
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+}
