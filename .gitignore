@@ -9,6 +9,14 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+.env
+
+.DS_STORE
+*.swp
+*.rbc
+*.sass-cache
+/pkg
+
 
 ## Specific to RubyMotion:
 .dat*
